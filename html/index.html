@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Item Show - Visualizador de Items</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app" class="hidden" role="dialog" aria-labelledby="menu-title" aria-modal="true">
+        <div class="menu-container">
+            <header class="menu-header">
+                <h1 class="menu-title" id="menu-title">📦 Visualizador de Items</h1>
+                <button class="close-btn" id="closeBtn" aria-label="Cerrar menú" title="Cerrar (ESC)">✕</button>
+            </header>
+            
+            <div class="search-container">
+                <label for="searchInput" class="sr-only">Buscar items</label>
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Buscar items por nombre o etiqueta..."
+                    autocomplete="off"
+                    aria-label="Buscar items"
+                >
+                <span class="search-icon" aria-hidden="true">🔍</span>
+            </div>
+            
+            <div class="items-count" role="status" aria-live="polite">
+                <span id="itemsCount">0</span> items encontrados
+            </div>
+            
+            <main class="items-grid" id="itemsGrid" role="grid" aria-label="Lista de items">
+                <!-- Los items se insertarán aquí dinámicamente -->
+            </main>
+            
+            <div class="no-results hidden" id="noResults" role="status">
+                <p>No se encontraron items que coincidan con tu búsqueda</p>
+            </div>
+            
+            <footer class="menu-footer">
+                <p>Haz click en un item para recibirlo</p>
+            </footer>
+        </div>
+    </div>
+    
+    <div id="quantityModal" class="modal hidden" role="dialog" aria-labelledby="modalItemName" aria-modal="true">
+        <div class="modal-content">
+            <header class="modal-header">
+                <h2 id="modalItemName">Seleccionar cantidad</h2>
+                <button class="modal-close-btn" id="modalCloseBtn" aria-label="Cerrar modal">✕</button>
+            </header>
+            <div class="modal-body">
+                <p class="modal-label">¿Cuántas unidades deseas recibir?</p>
+                <div class="quantity-input-container" role="group" aria-label="Selector de cantidad">
+                    <button class="quantity-btn" id="decreaseBtn" aria-label="Disminuir cantidad" type="button">-</button>
+                    <label for="quantityInput" class="sr-only">Cantidad</label>
+                    <input 
+                        type="number" 
+                        id="quantityInput" 
+                        class="quantity-input" 
+                        value="1" 
+                        min="1" 
+                        max="9999"
+                        aria-label="Cantidad de items"
+                    >
+                    <button class="quantity-btn" id="increaseBtn" aria-label="Aumentar cantidad" type="button">+</button>
+                </div>
+                <div class="modal-buttons">
+                    <button class="modal-btn modal-btn-cancel" id="cancelBtn" type="button">Cancelar</button>
+                    <button class="modal-btn modal-btn-confirm" id="confirmBtn" type="button">Confirmar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+        <div id="notification" class="notification hidden"></div>
+        
+        <script src="app.js"></script>
+        <style>
+            .sr-only {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                padding: 0;
+                margin: -1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+                border-width: 0;
+            }
+        </style>
+    </body>
+    </html>
+
