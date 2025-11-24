@@ -12,7 +12,7 @@ Recurso de FiveM para QBCore que permite a los administradores visualizar y reci
 
 ## Instalación
 
-1. Copia la carpeta `Visualisador de items` a `resources/`
+1. Copia la carpeta `Admin-itemshow` a `resources/`
 2. Agrega al `server.cfg`:
 ```
 ensure [Nombre de la carpeta donde tienes el recurso usualmente admin-itemshow]
@@ -46,4 +46,5 @@ Edita `config.lua` para ajustar:
 - Permisos ACE
 - Tiempo de cooldown entre recogidas
 - Modo debug
+
 
